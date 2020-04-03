@@ -9,8 +9,7 @@ export default function Login() {
 		<>
 			<LoginContainer>
 				<FaSpotify />
-				<LoginBtn href={auth.loginUrl()}
->
+				<LoginBtn href={auth.loginUrl()} className="loginBtn">
 					Login com Spotify
 				</LoginBtn>
 			</LoginContainer>

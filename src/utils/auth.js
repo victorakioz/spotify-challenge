@@ -1,7 +1,7 @@
 export function getAccessToken() {
   const queryString = window.location.hash.substring(1).split('&');
   const token = queryString[0].split('=')[1];
-
+  
   sessionStorage.setItem("access_token", token);
 }
 
