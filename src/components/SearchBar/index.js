@@ -21,6 +21,25 @@ class SearchBar extends Component {
 
   componentDidMount() {
     auth.getAccessToken();
+
+    spotify.get(`https://api.spotify.com/v1/search?q=${sessionStorage.getItem('search')}&type=album&limit=10`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('access_token')}`,
+    }})
+    .then((res) => {
+        this.setState({albums:res.data.albums.items});
+      })
+      .catch(err => {
+        if (err) {
+          const responseError = err.response.request.response;
+
+          if (responseError.includes("The access token expired")) {
+            alert('Token expirado, Redirecionando para a página de login.');
+              
+            window.location.href = auth.loginUrl();
+          }
+        }
+      });
   }
 
 
@@ -44,7 +63,6 @@ class SearchBar extends Component {
     })
     .then((res) => {
         this.setState({albums:res.data.albums.items});
-        this.setState({artists:res.data.artists.items});
       })
       .catch(err => {
         if (err) {

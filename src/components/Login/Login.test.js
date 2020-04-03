@@ -12,19 +12,3 @@ describe('Login button', () => {
     expect(tree).toMatchSnapshot()
   })
 })
-
-function setup() {
-  const enzymeWrapper = shallow(<Login {...props} />)
-
-  return {
-    enzymeWrapper
-  }
-}
-
-describe('Login button', () => {
-  it('Should render itself and a Logo'), () => {
-    const { enzymeWrapper } = setup()
-
-    expect(enzymeWrapper.find('a').text()).toBe('Login com Spotify')
-  }
-})
