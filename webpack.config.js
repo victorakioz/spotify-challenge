@@ -31,7 +31,7 @@ module.exports = {
 	plugins: [
     new webpack.DefinePlugin({
 			"process.env.SPOTIFY_CLIENT_ID": JSON.stringify("09f276ee3a464f4b9eb53304648f6426"),
-			"process.env.SPOTIFY_DEV_REDIRECT_URI": JSON.stringify("http%3A%2F%2Flocalhost%3A3000%2Fsearch")
+			"process.env.SPOTIFY_DEV_REDIRECT_URI": JSON.stringify("http://localhost:3000/search")
     })
   ]
 };
